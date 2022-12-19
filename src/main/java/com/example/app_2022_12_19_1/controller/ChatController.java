@@ -50,9 +50,9 @@ public class ChatController {
                 chatMessageList);
     }
 
-    @GetMapping("messages/{id}")
+    @GetMapping("/messagesById")
     @ResponseBody
-    public RsData<List<ChatMessage>> messagesById(@PathVariable("id") int id) {
+    public RsData<List<ChatMessage>> messagesById(@RequestParam(value="id") int id) {
         List<ChatMessage> getMessages = new ArrayList<>();
         for (int i = id; i < chatMessageList.size(); i++) {
             getMessages.add(chatMessageList.get(i));
